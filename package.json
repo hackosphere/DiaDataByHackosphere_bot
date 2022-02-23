@@ -1,0 +1,16 @@
+{
+  "name": "demobot",
+  "version": "1.0.0",
+  "description": "A demonstration telegram bot for next meeting of Hackosphere company with parteners (DIA)",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "Hackosphere",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "telegraf": "^4.7.0",
+    "total4": "^0.0.58"
+  }
+}
