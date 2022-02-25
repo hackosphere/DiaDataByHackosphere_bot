@@ -5,9 +5,15 @@ require("total4"); // import totaljs Libray
 require('dotenv').config();// import .env file
 var bot = new Telegraf(process.env.TELEGRAM_BOT_TOKEN);
 
+bot.start(function(context){
+    //handle welcome message
+    context.reply(Welcome to Hackosphere. Try /price {CoinSymbole}. We provide DaiData.);
+
+});
+
 bot.help(function(context){
     // handle help message
-    context.reply(`Type /price {CoinSymbole}  ------ Get the current price`);
+    context.reply(Type /price {CoinSymbole}  ------ Get the current price);
 });
 bot.on('message',function(context){
      Utils.validate(context, function(data){
@@ -18,7 +24,7 @@ bot.on('message',function(context){
 
                 // if no params is provided
                 if(data.params.length == 0){
-                    context.reply('CommandError : Parameter is missing!');
+                    context.reply('CommandError : Parameter is missing! Try this /price btc');
                 };
                 switch(data.command){
                     case '/price' : 
@@ -28,7 +34,7 @@ bot.on('message',function(context){
                                 context.reply('This coin is not listed yet');
                                 return;
                             };
-                            context.reply(`COIN : ${response.name}\nPRICE : ${response.price}`);
+                            context.reply(COIN : ${response.name}\nPRICE : ${response.price}\nDiaData by Hackosphere Bot);
                         });
                         break;
                     default :
